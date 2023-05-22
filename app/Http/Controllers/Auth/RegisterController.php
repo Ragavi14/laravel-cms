@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Mail;
+use App\Mail\TestEmail;
 
 class RegisterController extends Controller
 {
@@ -64,6 +66,8 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
+
+    
     protected function create(array $data)
     {
 
@@ -74,7 +78,14 @@ class RegisterController extends Controller
         ]);
     }
 
+    function registerform(){
+        return view('auth.register');
+    }
+
     function registeruser(Request $request){
+    
+
+
       $validater =  Validator::make($request->all(), [
           'name' => ['required', 'string', 'max:255'],
           'email' => ['required', 'string', 'email', 'max:255', 'unique:users']
@@ -86,20 +97,42 @@ class RegisterController extends Controller
       }
       else {
 
-    //    return redirect()->back()->with('success', 'your message,here')->withInput();
-
-       $name = $request->name ;
+    
+       /*$name = $request->name ;
        $email = $request->email ;
        $country = $request->country ;
        $error = '';
 
-        return view('auth/setpassword',compact('name', 'email' , 'country','error'));
+        return view('auth/setpassword',compact('name', 'email' , 'country','error'));*/
+
+        $data=[
+            'name' => $request->name ,
+            'email' => $request->email,
+            'country' => $request->country,
+            'error' =>''];
+
+        
+       Mail::to('ragavi@netiapps.com')->send(new TestEmail($data));
+
+       return redirect()->route('register')->withMessage('Set Password link has been sent to your email ID');
 
       }
     }
 
+    function setpassword(){
+
+ 
+      if(User::where('email',$_GET['email'])->exists()){
+           return redirect()->route('home');
+       }
+       
+       $error = '';
+
+        return view('auth/setpassword',compact('error'));
+    }
+
     function save_user(Request $request){
-      //print_r($request->Input());
+      //print_r($request->Input());die();
 
       if($request->password == $request->confirm_password){
 

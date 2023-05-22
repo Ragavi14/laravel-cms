@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.page')
 
 @section('content')
 <div class="container">
@@ -65,9 +65,9 @@
 
                           </div>
                           @if (Route::has('register'))
-                              <li class="nav-item">
-                                  <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                              </li>
+                               <p style="text-align: center;">Dont have an account?
+                               <a class="btn btn-link" href="{{ route('register') }}">{{ __('Register') }}</a></p>
+
                           @endif
                         </div>
                     </form>

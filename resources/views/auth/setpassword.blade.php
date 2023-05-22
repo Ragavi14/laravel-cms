@@ -15,14 +15,14 @@
                     <form method="POST" action="{{route('save_user') }}">
                         @csrf
 
-                        <input type="hidden" name="name" value="{{$name}}">
-                        <input type="hidden" name="email" value="{{$email}}">
-                        <input type="hidden" name="country" value="{{$country}}">
+                        <input type="hidden" name="name" value="{{$_GET['name']}}" >
+                        <input type="hidden" name="email" value="{{$_GET['email']}}">
+                        <input type="hidden" name="country" value="{{$_GET['country']}}">
 
                                                 <div id="pass" >
 
                                                   @if($error !="")
-                                                      <p style="color:red">{{$error}}</p>
+                                                      <p style="color:black">{{$error}}</p>
                                                   @endif
                                                   <div class="row mb-3">
                                                     <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>

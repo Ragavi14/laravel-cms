@@ -24,6 +24,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::post('registeruser',[App\Http\Controllers\Auth\RegisterController::class,'registeruser'])->name('reg');
 
-Route::post('set-password',[App\Http\Controllers\Auth\RegisterController::class,'setpassword'])->name('setpassword');
+Route::get('register',[App\Http\Controllers\Auth\RegisterController::class,'registerform'])->name('register');
+
+Route::get('set-password',[App\Http\Controllers\Auth\RegisterController::class,'setpassword'])->name('setpassword');
 
 Route::post('save_user',[App\Http\Controllers\Auth\RegisterController::class,'save_user'])->name('save_user');

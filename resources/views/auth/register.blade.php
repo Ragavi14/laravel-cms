@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.page')
 
 @section('content')
 <div class="container">
@@ -11,6 +11,11 @@
                     <form method="POST" action="{{ route('reg') }}">
                         @csrf
                       <div id="user">
+                     
+                     @if(Session::has('message'))
+            <p id="mydiv" class="text-danger text-center">{{ Session::get('message') }}</p>
+        @endif
+                        <p></p>
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
@@ -39,20 +44,34 @@
                             </div>
 
                         </div>
-
                         <div class="row mb-3">
+
+                                                        <label for="country" class="col-md-4 col-form-label text-md-end">{{ __('Country') }}</label>
+
+                                                            <div class="col-md-6">
+
+                                                            <select class="selectpicker countrypicker form-control" name="country" data-flag="true" multiple></select>
+
+                                                                <script>
+                                                                    $('.countrypicker').countrypicker();
+                                                                </script>
+                                                            </div>
+                                                </div>
+
+                      
+
+                        <!-- <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Country') }} </label>
 
                             <div class="col-md-6">
-                                <select class="form-control" name="country" required>
-                                  <option value=""> selct country</option>
+                                <select class="form-control" name="country" required="country">
+                                  <option value=""> Select Country</option>
                                   <option value="India"> India</option>
                                   <option  value="Afganistan"> Afganistan</option>
                                  </select>
-
                             </div>
 
-                        </div>
+                        </div> -->
 
 
                         </div>
@@ -102,7 +121,7 @@
                                 <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary" >
-                                    {{ __('register') }}
+                                    {{ __('submit') }}
                                 </button>
                             </div>
                         </div>
