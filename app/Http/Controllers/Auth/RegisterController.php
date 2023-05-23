@@ -114,7 +114,9 @@ class RegisterController extends Controller
         
        Mail::to('ragavi@netiapps.com')->send(new TestEmail($data));
 
-       return redirect()->route('register')->withMessage('Set Password link has been sent to your email ID');
+       return view('success',['successMsg'=>'We have sent an email to set password link to your email. Please check your email and set your password','from'=>'register']);
+
+      //  return redirect()->route('register')->withMessage('Set Password link has been sent to your email ID');
 
       }
     }
@@ -143,7 +145,8 @@ class RegisterController extends Controller
            'password'=> Hash::make($request->password)
          ]);
 
-         return redirect()->route('home');
+        //  return redirect()->route('home');
+         return view('success',['successMsg'=>'Your password has been created successfully. Please click here to login ','from'=>'setpassword']);
 
 
       }else {

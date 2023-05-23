@@ -8,7 +8,7 @@
 
 
               <div class="col-md-8">
-                  <h2> {{ __('Welcome TO Laravel   ') }}
+                  <h2> {{ __('Welcome    ') }}
                       {{ Auth::user()->name }}  </h2>
               </div>
 
