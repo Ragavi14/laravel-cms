@@ -10,7 +10,9 @@
               <div class="col-md-8">
                 @if($from=='setpassword')
                   <h2>{{$successMsg}}  </h2> <a class='nav-lin' href="{{ route('login') }}">{{ __('Login') }}</a> 
-                @else
+                @elseif($from=='register')
+                   <h2>{{$successMsg}}  </h2>
+                   @else
                    <h2>{{$successMsg}}  </h2>
                 @endif
               </div>

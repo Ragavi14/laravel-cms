@@ -121,17 +121,21 @@ class RegisterController extends Controller
       }
     }
 
-    function setpassword(){
+    // function setpassword(){
 
  
-      if(User::where('email',$_GET['email'])->exists()){
-           return redirect()->route('home');
-       }
+    //   if(User::where('email',$_GET['email'])->exists()){
+    //     return view('success',['successMsg'=>'Sorry!','from'=>'password']);
+    //    }
        
-       $error = '';
+    //    $error = '';
 
-        return view('auth/setpassword',compact('error'));
-    }
+    //     return view('auth/setpassword',compact('error'));
+      
+        
+    //     // return view('success',['successMsg'=>'Sorry!','from'=>'password']);
+        
+    // }
 
     function save_user(Request $request){
       //print_r($request->Input());die();

@@ -65,7 +65,7 @@
 
                           </div>
                           @if (Route::has('register'))
-                               <p style="text-align: center;">Dont have an account?
+                               <p style="text-align: center;">Don't have an account?
                                <a class="btn btn-link" href="{{ route('register') }}">{{ __('Register') }}</a></p>
 
                           @endif
