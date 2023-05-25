@@ -32,7 +32,7 @@ class HomeController extends Controller
 
         //   echo 'MMM';exit;
         if(User::where('email',$_GET['email'])->exists()){
-          return view('success',['successMsg'=>'Sorry!','from'=>'password']);
+          return view('success',['successMsg'=>'Sorry! Your session is expired!','from'=>'password']);
          }
          
          $error = '';
