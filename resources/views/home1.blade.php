@@ -1,24 +1,9 @@
 @extends('layouts.banner')
 @extends('layouts.slider')
 
+
+
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-
-
-              <div class="col-md-8">
-                  <h2 style="color: black;"> {{ __('Welcome    ') }}
-                      {{ Auth::user()->name }}  </h2>
-              </div>
-
-
-
-
-        </div>
-    </div>
-</div>
-
 
 <div  style="padding-top: 50px;">
     <div class="row justify-content-center">
@@ -84,20 +69,5 @@
 
 
           
-
-          <!-- @if(isset($contents))
-                         @foreach($contents as $key => $value)
-                         <div class="row justify-content-center ">
-                            <div class="col-md-8 c ">
-                                <div class="content-sec">
-                                    <div class="">
-                                        <div class="title">  {{$value->title}}  </div>
-                                        <div> <p> {{$value->blog}} </p> </div>
-                                    </div>
-                                </div>
-                            </div>
-                         </div>
-                         @endforeach;
-                @endif; -->
 
 @endsection

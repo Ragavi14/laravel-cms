@@ -18,9 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" >
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -109,24 +110,24 @@
 
                                  <div class="container-fluid">
     <div class="row flex-nowrap">
-        <div class="col-auto col-md-3 col-xl-1 px-sm-2  bg-dark">
+        <div class="col-auto col-md-3 col-xl-1 px-sm-2  bg-dark" style="height: 2000px;">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                 <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                     <span class="fs-5 d-none d-sm-inline"> <h3> Menu </h3> </span> 
                 </a>
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                <li>
+                    <li>
                         <a href="#submenu3" data-bs-toggle="collapse" class="btn-link px-0 align-middle">
                             <i class="fs-4 bi-grid"></i> <button class="btn btn-outline-secondary" style="color: white;"  >CMS</button> </a>
                             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                             <li class="w-100">
-                                <a href="#" class="nav-link px-0"> <span style="color: white;" class="d-none d-sm-inline">Home</span> </a>
+                                <a href="list-content" class="nav-link px-0"> <span style="color: white;" class="d-none d-sm-inline">Content</span> </a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link px-0"> <span style="color: white;" class="d-none d-sm-inline">Service</span> </a>
+                                <a href="service" class="nav-link px-0"> <span style="color: white;" class="d-none d-sm-inline">Service</span> </a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link px-0"> <span style="color: white;" class="d-none d-sm-inline">About</span> </a>
+                                <a href="about" class="nav-link px-0"> <span style="color: white;" class="d-none d-sm-inline">About</span> </a>
                             </li>
                              
                             <!-- <li>
@@ -134,15 +135,11 @@
                             </li>  -->
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link align-middle px-0">
-                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline"></span>
-                        </a>
-                    </li>
+                    
                    
                     <li>
-                        <a href="#" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline"></span> </a>
+                        <a href="home1" class="nav-link px-0 align-middle">
+                             <span style="color: white;" class="ms-1 d-none d-sm-inline"></span> Home </a>
                     </li>
                     <li>
                         <a href="#" class="nav-link px-0 align-middle">

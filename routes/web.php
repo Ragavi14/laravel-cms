@@ -25,7 +25,20 @@ Route::get('/', function () {
 });
 Auth::routes();
 
+Route::get('home1', [App\Http\Controllers\HomeController::class, 'index1'])->name('home1');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('homePage', [App\Http\Controllers\HomeController::class, 'homePage'])->name('homePage');
+Route::get('about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
+Route::get('service', [App\Http\Controllers\HomeController::class, 'service'])->name('service');
+
+Route::get('create-content', [App\Http\Controllers\ContentController::class, 'create'])->name('create-content');
+Route::post('save-content', [App\Http\Controllers\ContentController::class, 'store'])->name('save-content');
+Route::get('list-content',[App\Http\Controllers\ContentController::class, 'index'])->name('list-content');
+Route::get('edit-content/{id}', [App\Http\Controllers\ContentController::class, 'edit'])->name('edit-content');
+Route::delete('destroy-content/{id}',  [App\Http\Controllers\ContentController::class, 'destroy'])->name('destroy-content');
+Route::put('update-content/{id}', [App\Http\Controllers\ContentController::class, 'update'])->name('update-content');
+Route::get('show-content',[App\Http\Controllers\ContentController::class, 'show'])->name('show-content');
 
 
 

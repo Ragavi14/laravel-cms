@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Content;
 
 class HomeController extends Controller
 {
@@ -16,7 +17,6 @@ class HomeController extends Controller
     {
         // $this->middleware('auth');
     }
-
     /**
      * Show the application dashboard.
      *
@@ -25,7 +25,17 @@ class HomeController extends Controller
     public function index()
     {
         $this->middleware('auth');
-        return view('home');
+        $contents = Content::all();
+        return view('home',compact('contents'));
+        
+    }
+
+    public function index1()
+    {
+        $this->middleware('auth');
+        $contents = Content::all();
+        return view('home1',compact('contents'));
+        
     }
 
     function setpassword(){
@@ -44,4 +54,22 @@ class HomeController extends Controller
           
       }
     
+      public function content(){
+            return view('content');
+      }
+
+      public function about(){
+        return view('about');
+  }
+
+  public function service(){
+    return view('service');
+}
+
+public function homePage(){
+  //  echo 'KKKKK';exit;
+
+    $contents = Content::get();
+    return view('homePage',['contents'=> $contents]);
+}
 }
