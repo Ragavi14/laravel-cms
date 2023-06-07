@@ -37,18 +37,13 @@
                     <div class="card-product">
                     
                         
-                        <div class="title">
+                    <div class="title">
                            <b> {{ $content->title }} </b>  
                         </div>
-                        <div>
-                           <b> {{ $content->blog }} </b>
+                        <div class="ck-content">
+                           {!! html_entity_decode($content->blog) !!} 
                         </div>
-                        <br>
-                                               
-
-                      
-                        
-                       
+                        <br>  
                         
                     </div>
                 </div>
@@ -60,6 +55,19 @@
             @endif
         </div>
     </div>
-</div>            
+</div>   
+
+
+<style>
+    .ck-content img {
+        max-width: 200px; /* Maximum width for the displayed image */
+        max-height: 150px; /* Maximum height for the displayed image */
+
+        
+    }
+    .ck-content img:hover{
+        width: 100px !important;
+    }
+</style>
    
 @endsection

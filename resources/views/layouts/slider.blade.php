@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
 
@@ -20,17 +21,17 @@
   </div>
   
   <!-- The slideshow/carousel -->
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="/slider-image/6.png" alt="Los Angeles" class="d-block" style="width:100%">
+     <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/slider-image/6.png" class="d-block" style="width:100%">
+      </div>
+      <div class="carousel-item">
+        <img src="/slider-image/7.jpg" class="d-block" style="width:100%">
+      </div>
+      <div class="carousel-item">
+        <img src="/slider-image/18.jpg" class="d-block" style="width:100%">
+      </div>
     </div>
-    <div class="carousel-item">
-      <img src="/slider-image/7.jpg" alt="Chicago" class="d-block" style="width:100%">
-    </div>
-    <div class="carousel-item">
-      <img src="/slider-image/18.jpg" alt="New York" class="d-block" style="width:100%">
-    </div>
-  </div>
   
   <!-- Left and right controls/icons -->
   <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">

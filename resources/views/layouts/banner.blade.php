@@ -110,8 +110,8 @@
     <div id="bannerimage">
       <div class="bannerWrapper">
         <div class="bannerText" style="">
-            <h1>CMS</h1>
-          <p>A content management system (CMS) is an application that is used to manage content, allowing multiple contributors to create, edit and publish.
+            <h1 style="font-size: 100px;">CMS</h1>
+          <p style="font-size: 2.5vw;">A content management system (CMS) is an application that is used to manage content, allowing multiple contributors to create, edit and publish.
              Content in a CMS is typically stored in a database and displayed in a presentation layer based on a set of templates like a website.</p>
         </div>
       </div>

@@ -15,7 +15,7 @@
                                     <div class="head-section">
                                    
                                             <a href="{{ route('create-content') }}">
-                                                <button>  {{('Add Blog') }}    </button>  </a>
+                                                <button class="btn btn-default">  {{('Add Blog') }}    </button>  </a>
                                      <div>
                     </div>
 
@@ -44,17 +44,26 @@
                     
              
         
-                <div class="col-md-4">
+                <div class="col-md-3">
                     
                     <div class="card-product">
                        <div class="title">
                            <b> {{ $content->title }} </b>  
                         </div>
-                        <div>
-                           <b> {{ $content->blog }} </b>
-                        </div>
-                        <br>                 
-                                                                     
+                        @php                           
+                            $decodedContent = html_entity_decode($content->blog);
+                            $limitedContent = Str::limit($decodedContent, 150, '...');
+                            $isContentLimited = Str::length($decodedContent) > 100;
+                        @endphp
+
+                        <div class="post-content">
+                            {!! $limitedContent !!}
+                            @if ($isContentLimited)
+                            
+                                <a href="{{ route('view-content', $content->id) }}" style="color: blue;">Read More</a>
+                            @endif
+                        </div>             
+                                                                        
                     </div>
                 </div>
             
@@ -67,7 +76,18 @@
     </div>
 </div>          
 
-
+<style>
+   
+    .post-content img {
+        max-width: 200px; /* Maximum width for the displayed image */
+        max-height: 150px; /* Maximum height for the displayed image */
+    }
+    .ck-content img:hover{
+        width: 100px !important;
+    }
+    </style>
           
+
+   
 
 @endsection

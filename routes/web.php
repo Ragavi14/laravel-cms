@@ -39,7 +39,8 @@ Route::get('edit-content/{id}', [App\Http\Controllers\ContentController::class, 
 Route::delete('destroy-content/{id}',  [App\Http\Controllers\ContentController::class, 'destroy'])->name('destroy-content');
 Route::put('update-content/{id}', [App\Http\Controllers\ContentController::class, 'update'])->name('update-content');
 Route::get('show-content',[App\Http\Controllers\ContentController::class, 'show'])->name('show-content');
-
+Route::post('uploadFile',[App\Http\Controllers\ContentController::class,'uploadFile'])->name('uploadFile');
+Route::get('view-content/{id}',[App\Http\Controllers\ContentController::class, 'view'])->name('view-content');
 
 
 

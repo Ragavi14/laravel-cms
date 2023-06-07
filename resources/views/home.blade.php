@@ -30,7 +30,7 @@
                                     <div class="head-section">
                                    
                                             <a href="{{ route('create-content') }}">
-                                                <button>  {{('Add Blog') }}    </button>  </a>
+                                                <button class="btn btn-default">  {{('Add Blog') }}    </button>  </a>
                                      <div>
                     </div>
 
@@ -53,23 +53,36 @@
         <div class="row col-md-12"> 
         
      
-            @if($contents)
+        @if($contents)
 
                 @foreach($contents as $content)
                     
              
         
-                <div class="col-md-4">
+                <div class="col-md-3">
                     
                     <div class="card-product">
                        <div class="title">
                            <b> {{ $content->title }} </b>  
                         </div>
-                        <div>
-                           <b> {{ $content->blog }} </b>
-                        </div>
-                        <br>                 
-                                                                     
+                        @php   
+
+                            
+                            $decodedContent = html_entity_decode($content->blog);
+                            $limitedContent = Str::limit($decodedContent, 150, '...');
+                            $isContentLimited = Str::length($decodedContent);
+                        @endphp
+
+                        <div class="post-content">
+                            
+                            {!! $limitedContent !!}
+                            
+                            @if ($limitedContent > 150 )
+                            
+                                <a href="{{ route('view-content', $content->id) }}" style="color: blue;">Read More</a>
+                            @endif
+                        </div>             
+                                                                        
                     </div>
                 </div>
             
@@ -82,22 +95,15 @@
     </div>
 </div>          
 
-
-          
-
-          <!-- @if(isset($contents))
-                         @foreach($contents as $key => $value)
-                         <div class="row justify-content-center ">
-                            <div class="col-md-8 c ">
-                                <div class="content-sec">
-                                    <div class="">
-                                        <div class="title">  {{$value->title}}  </div>
-                                        <div> <p> {{$value->blog}} </p> </div>
-                                    </div>
-                                </div>
-                            </div>
-                         </div>
-                         @endforeach;
-                @endif; -->
+<style>
+   
+    .post-content img {
+        max-width: 200px; /* Maximum width for the displayed image */
+        max-height: 150px; /* Maximum height for the displayed image */
+    }
+    .ck-content img:hover{
+        width: 100px !important;
+    }
+    </style>
 
 @endsection

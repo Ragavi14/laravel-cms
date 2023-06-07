@@ -1,5 +1,5 @@
 @extends('layouts.cms')
-
+@extends('layouts.editor')
 
 @section('content')
 <div class="container">
@@ -29,7 +29,8 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="blog"> <h5> <b> Content </b> </h5> </label>
-                            <input type="text"  id="blog" name="blog" value="{{isset($content->blog)?$content->blog:''}}" required class="form-control">
+                            <textarea name="blog" id="editor">{!! $content->blog !!}</textarea>
+                            <!-- <input type="text"  id="blog" name="blog" value="{{isset($content->blog)?$content->blog:''}}" required class="form-control"> -->
                         </div>
                         
                         
@@ -47,5 +48,31 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+
+ClassicEditor
+      .create( document.querySelector( '#editor' ),{ 
+            ckfinder: {
+                  uploadUrl: "{{route('uploadFile').'?_token='.csrf_token()}}",
+            }
+      } )
+      .then( editor => {
+
+            console.log( editor );
+
+      } )
+      .catch( error => {
+            console.error( error );
+      } );
+</script>
+
+<style>
+    .ck-content img {
+        max-width: 100px; /* Maximum width for the displayed image */
+        max-height: 100px; /* Maximum height for the displayed image */
+    }
+</style>
+
 
 @endsection
